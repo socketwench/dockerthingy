@@ -9,11 +9,13 @@ RUN apt-get install -yq php5 php5-mysql php5-imagick php5-imap \
                         php5-sqlite php5-common php-apc php-pear \
                         php5-json php5-memcache php5-intl
 
+RUN a2enmod rewrite
+
 COPY docker.dev.conf /etc/apache2/sites-available/docker.dev.conf
 
 RUN a2dissite 000-default && \
     a2ensite docker.dev
-    
+
 EXPOSE 80
 
 CMD ["-D", "FOREGROUND"]
