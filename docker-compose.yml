@@ -4,6 +4,8 @@ web:
       - "80:80"
    volumes:
       - docroot:/var/www
+   links:
+      - db
 db:
    build: .docker/db
    ports:
