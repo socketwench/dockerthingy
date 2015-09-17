@@ -3,7 +3,7 @@ web:
    ports:
       - "80:80"
    volumes:
-      - docroot:/var/www
+      - ./docroot:/var/www
    links:
       - db
 db:
@@ -17,7 +17,7 @@ db:
 cli:
    build: .docker/cli
    volumes:
-      - docroot:/var/www
+      - ./docroot:/var/www
    links:
       - db
       - web
